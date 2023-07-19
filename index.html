@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designação de tarefas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+        display: block;
+        margin: 0 auto; /* Centraliza horizontalmente o botão */
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    div.resultado {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    div.resultado p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Designação de tarefas</h1>
+  <label for="input_pessoas">Digite os nomes dos membros, separados por vírgula:</label>
+  <input type="text" id="input_pessoas">
+
+  <label for="input_lideres">Digite os nomes dos líderes e auxiliares, separados por vírgula:</label>
+  <input type="text" id="input_lideres">
+
+  <button onclick="fazerDesignacoes()">Designar tarefas</button>
+
+  <div class="resultado" id="resultado">
+    <!-- O resultado será inserido aqui dinamicamente -->
+  </div>
+
+  <script>
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function fazerDesignacoes() {
+      const tarefas = ["Quebra-gelo", "Louvores", "Edificação", "Cadeira da benção", "Compartilhando a Visão"];
+      const pessoas = new Set(document.getElementById("input_pessoas").value.split(",").map(p => p.trim()));
+      const lideresEdificacao = new Set(document.getElementById("input_lideres").value.split(",").map(l => l.trim()));
+      const resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.innerHTML = "";
+
+      const todasAsPessoas = new Set([...pessoas, ...lideresEdificacao]);
+      const pessoasArray = [...todasAsPessoas];
+      shuffleArray(pessoasArray);
+
+      const designacoes = {};
+
+      for (const tarefa of tarefas) {
+        designacoes[tarefa] = null;
+        if (tarefa === "Edificação") {
+          while (true) {
+            const pessoa = pessoasArray.pop();
+            if (lideresEdificacao.has(pessoa)) {
+              designacoes[tarefa] = pessoa;
+              break;
+            }
+          }
+        } else {
+          while (true) {
+            const pessoa = pessoasArray.pop();
+            if (pessoas.has(pessoa)) {
+              designacoes[tarefa] = pessoa;
+              break;
+            }
+          }
+        }
+      }
+
+      const resultado = document.createElement("p");
+
+      for (const tarefa in designacoes) {
+        resultado.innerHTML += `${tarefa}: ${designacoes[tarefa]}<br>`;
+      }
+
+      resultadoDiv.appendChild(resultado);
+    }
+  </script>
+</body>
+</html>
