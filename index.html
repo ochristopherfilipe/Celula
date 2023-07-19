@@ -5,15 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Designação de tarefas</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 430px;
-      margin: 0 auto;
-      padding: 20px;
+    *{
+        font-family: 'Exo', sans-serif;
+        text-align: center;
+        background-color: none;
+        
     }
+
+    body {
+        max-width: 500px;
+        margin: 0 auto;
+        margin-top: 100px; /* Ajuste o valor conforme necessário */
+        padding: 45px;
+        background-color: rgba(201, 201, 201, 0.685);
+        background-image: linear-gradient(to left, rgba(11, 145, 207, 0.507), rgba(128, 179, 47, 0.267));
+        font-family: Arial, sans-serif;
+}
     h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 33px;
+      margin-bottom: 25px;
+      color: black;
     }
     label {
       display: block;
@@ -21,21 +32,32 @@
     }
     input[type="text"] {
       width: 100%;
-      padding: 5px;
+      padding: 10px;
+      border-radius: 15px;
+      border: solid #ccc;
       margin-bottom: 10px;
     }
     button {
         display: block;
         margin: 0 auto; /* Centraliza horizontalmente o botão */
         padding: 10px;
-        background-color: #4CAF50;
+        background-color: #139218;
         color: white;
+        border-radius: 9px;
         border: none;
+        padding: 15px;
         cursor: pointer;
+        
+        
     }
     button:hover {
-      background-color: #45a049;
+      background-color: orangered;
+      transition: color ease-in-out;
+    
     }
+    
+ 
+
     div.resultado {
       margin-top: 20px;
       border: 1px solid #ccc;
