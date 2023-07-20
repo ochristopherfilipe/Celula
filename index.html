@@ -1,82 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Designação de tarefas</title>
-  <style>
-    *{
-        font-family: 'Exo', sans-serif;
-        text-align: center;
-        background-color: none;
-        
-    }
-
-    body {
-        max-width: 500px;
-        margin: 0 auto;
-        margin-top: 100px; /* Ajuste o valor conforme necessário */
-        padding: 45px;
-        background-color: rgba(201, 201, 201, 0.685);
-        background-image: linear-gradient(to left, rgba(11, 145, 207, 0.507), rgba(128, 179, 47, 0.267));
-        font-family: Arial, sans-serif;
-}
-    h1 {
-      font-size: 33px;
-      margin-bottom: 25px;
-      color: black;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border-radius: 15px;
-      border: solid #ccc;
-      margin-bottom: 10px;
-    }
-    button {
-        display: block;
-        margin: 0 auto; /* Centraliza horizontalmente o botão */
-        padding: 10px;
-        background-color: #139218;
-        color: white;
-        border-radius: 9px;
-        border: none;
-        padding: 15px;
-        cursor: pointer;
-        
-        
-    }
-    button:hover {
-      background-color: orangered;
-      transition: color ease-in-out;
-    
-    }
-    
- 
-
-    div.resultado {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-    div.resultado p {
-      margin: 0;
-    }
-  </style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YMo61L2arpzxWGj9baEZ1SaX1wxHFr-7V3o5mGuYy6vQeBSNskIe6MhsIBnJ_KCbC36u1Jz-SpFFQbVM7uMw9A" charset="UTF-8"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media= "screen and (max-width: 768px)" href="mobile.css">
+  
 </head>
 <body>
+  <img src="/img/logo1.png" id="logo">
   <h1>Designação de tarefas</h1>
   <label for="input_pessoas">Digite os nomes de todos os membros e líderes:</label>
-  <input type="text" id="input_pessoas">
+  <input type="text" placeholder="Ex.: João, Maria, José, Ana " id="input_pessoas">
 
   <label for="input_lideres">Digite somente os nomes de quem pode fazer a edificação:</label>
-  <input type="text" id="input_lideres">
+  <input type="text" placeholder="Ex.: João, Maria" id="input_lideres">
 
-  <button onclick="fazerDesignacoes()">Designar tarefas</button>
+  <button onclick="fazerDesignacoes()">Designar tarefas</button> 
+  <button onclick="window.print()">Imprimir lista</button>
 
   <div class="resultado" id="resultado">
     <!-- O resultado será inserido aqui dinamicamente -->
