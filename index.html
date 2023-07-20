@@ -70,10 +70,10 @@
 </head>
 <body>
   <h1>Designação de tarefas</h1>
-  <label for="input_pessoas">Digite os nomes dos membros, separados por vírgula:</label>
+  <label for="input_pessoas">Digite os nomes de todos os membros e líderes:</label>
   <input type="text" id="input_pessoas">
 
-  <label for="input_lideres">Digite os nomes dos líderes e auxiliares, separados por vírgula:</label>
+  <label for="input_lideres">Digite somente os nomes de quem pode fazer a edificação:</label>
   <input type="text" id="input_lideres">
 
   <button onclick="fazerDesignacoes()">Designar tarefas</button>
@@ -92,8 +92,8 @@
 
     function fazerDesignacoes() {
       const tarefas = ["Quebra-gelo", "Louvores", "Edificação", "Cadeira da benção", "Compartilhando a Visão"];
-      const pessoas = new Set(document.getElementById("input_pessoas").value.split(",").map(p => p.trim()));
-      const lideresEdificacao = new Set(document.getElementById("input_lideres").value.split(",").map(l => l.trim()));
+      const pessoas = new Set(document.getElementById("input_pessoas").value.split(/[,\n]| e /).map(p => p.trim()));
+      const lideresEdificacao = new Set(document.getElementById("input_lideres").value.split(/[,\n]| e /).map(l => l.trim()));
       const resultadoDiv = document.getElementById("resultado");
       resultadoDiv.innerHTML = "";
 
