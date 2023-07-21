@@ -3,7 +3,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     margin-top: 100px; /* Ajuste o valor conforme necessário */
-    padding: 45px;
+    padding: 0;
     background-color: rgba(201, 201, 201, 0.685);
     background-image: linear-gradient(to left, rgba(11, 145, 207, 0.507), rgba(128, 179, 47, 0.267));
 }

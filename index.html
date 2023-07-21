@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -9,24 +7,30 @@
   <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YMo61L2arpzxWGj9baEZ1SaX1wxHFr-7V3o5mGuYy6vQeBSNskIe6MhsIBnJ_KCbC36u1Jz-SpFFQbVM7uMw9A" charset="UTF-8"></script>
   <script src="main.js"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" media= "screen and (max-width: 768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <style>
+    /* Estilo para aumentar a imagem para 200 pixels de largura */
+    #logo {
+      width: 200px;
+      margin-top: 5px; /* Ajuste o valor conforme necessário */
+    }
+  </style>
 </head>
 
 <body>
   <div id="container"> 
-  <img src="/img/logo1.png" id="logo">
-  <h1>Designação de tarefas</h1>
-  <label for="input_pessoas">Digite os nomes de todos os membros e líderes:</label>
-  <input type="text" placeholder="Ex.: João, Maria, José, Ana " id="input_pessoas">
-  <label for="input_lideres">Digite somente os nomes de quem pode fazer a edificação:</label>
-  <input type="text" placeholder="Ex.: João, Maria" id="input_lideres">
-  <button onclick="fazerDesignacoes()">Designar tarefas</button> 
-  <button onclick="window.print()">Imprimir lista</button>
-  <div class="resultado" id="resultado">
-    <!-- O resultado será inserido aqui dinamicamente -->
+    <!-- Apontando para o arquivo logo.svg na pasta local -->
+    <img src="logo.svg" id="logo">
+    <h1>Designação de tarefas</h1>
+    <label for="input_pessoas">Digite os nomes de todos os membros e líderes:</label>
+    <input type="text" placeholder="Ex.: João, Maria, José, Ana " id="input_pessoas">
+    <label for="input_lideres">Digite somente os nomes de quem pode fazer a edificação:</label>
+    <input type="text" placeholder="Ex.: João, Maria" id="input_lideres">
+    <button onclick="fazerDesignacoes()">Designar tarefas</button> 
+    <button onclick="window.print()">Imprimir lista</button>
+    <div class="resultado" id="resultado">
+      <!-- O resultado será inserido aqui dinamicamente -->
+    </div>
   </div>
-</div>
- 
 </body>
 </html>
-
