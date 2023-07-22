@@ -4,39 +4,40 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 function fazerDesignacoes() {
   const tarefas = ["Quebra-gelo", "Louvores", "Edificação", "Cadeira da benção", "Compartilhando a Visão"];
-  const pessoas = new Set(document.getElementById("input_pessoas").value.split(/[,\n]| e /).map(p => p.trim()));
-  const lideresEdificacao = new Set(document.getElementById("input_lideres").value.split(/[,\n]| e /).map(l => l.trim()));
-  const resultadoDiv = document.getElementById("resultado");
-  resultadoDiv.innerHTML = "";
+  const pessoasInput = document.getElementById("input_pessoas").value.trim();
+  const lideresInput = document.getElementById("input_lideres").value.trim();
 
-  const todasAsPessoas = new Set([...pessoas, ...lideresEdificacao]);
-  const pessoasArray = [...todasAsPessoas];
-  shuffleArray(pessoasArray);
+  // Verifica se os campos estão preenchidos
+  if (pessoasInput === "" || lideresInput === "") {
+    alert("Por favor, preencha os campos com os nomes das pessoas e dos líderes de edificação.");
+    return;
+  }
+
+  const pessoas = pessoasInput.split(/[,\n]| e /).map(p => p.trim());
+  const lideresEdificacao = lideresInput.split(/[,\n]| e /).map(l => l.trim());
+
+  const todasAsPessoas = [...pessoas, ...lideresEdificacao];
+  shuffleArray(todasAsPessoas);
 
   const designacoes = {};
 
   for (const tarefa of tarefas) {
-    designacoes[tarefa] = null;
     if (tarefa === "Edificação") {
-      while (true) {
-        const pessoa = pessoasArray.pop();
-        if (lideresEdificacao.has(pessoa)) {
-          designacoes[tarefa] = pessoa;
-          break;
-        }
+      if (lideresEdificacao.length > 0) {
+        designacoes[tarefa] = lideresEdificacao.pop();
+      } else {
+        designacoes[tarefa] = todasAsPessoas.pop();
       }
     } else {
-      while (true) {
-        const pessoa = pessoasArray.pop();
-        if (pessoas.has(pessoa)) {
-          designacoes[tarefa] = pessoa;
-          break;
-        }
-      }
+      designacoes[tarefa] = todasAsPessoas.pop();
     }
   }
+
+  const resultadoDiv = document.getElementById("resultado");
+  resultadoDiv.innerHTML = "";
 
   const resultado = document.createElement("p");
 
