@@ -5,6 +5,22 @@ function shuffleArray(array) {
   }
 }
 
+function salvarNomes() {
+  const pessoasInput = document.getElementById("input_pessoas").value.trim();
+  const lideresInput = document.getElementById("input_lideres").value.trim();
+
+  localStorage.setItem("pessoas", pessoasInput);
+  localStorage.setItem("lideres", lideresInput);
+}
+
+function carregarNomes() {
+  const pessoasInput = localStorage.getItem("pessoas") || "";
+  const lideresInput = localStorage.getItem("lideres") || "";
+
+  document.getElementById("input_pessoas").value = pessoasInput;
+  document.getElementById("input_lideres").value = lideresInput;
+}
+
 function fazerDesignacoes() {
   const tarefas = ["Quebra-gelo", "Louvores", "Edificação", "Cadeira da benção", "Compartilhando a Visão"];
   const pessoasInput = document.getElementById("input_pessoas").value.trim();
