@@ -1,73 +1,58 @@
-
-body {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 0px; /* Ajuste o valor conforme necessário */
-    padding: 0;
-    background-color: rgba(201, 201, 201, 0.685);
-    background-image: linear-gradient(to left, rgba(11, 145, 207, 0.507), rgba(128, 179, 47, 0.267));
-}
-h1 {
-  font-size: 30px;
-  margin-bottom: 0px;
-  color: black;
-  border-bottom: solid;
-  padding-bottom: 15px;
-}
-label {
-  display: inline-flexbox;
-  margin-bottom: 5px;
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: 500;
-}
-input[type="text"] {
-  width: 100%;
-  padding: 13px;
-  border-radius: 15px;
-  border: none;
-  margin-bottom: 10px;
-  text-align: center;
-
-}
-button {
-    display: inline;
-    margin: 0 auto; /* Centraliza horizontalmente o botão */
-    padding: 10px;
-    background-color: #139218;
-    color: white;
-    border-radius: 9px;
-    border: none;
+/* Estilos para dispositivos móveis */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: rgba(201, 201, 201, 0.95);
+    background-image: none;
     padding: 15px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-weight: 600; 
-    transition: background-color 0.3s ease-in-out;
-    
-    
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  input[type="text"] {
+    text-align: left;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  div.resultado {
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 16px;
+  }
 }
-button:hover {
-  background-color: orangered;
-}
 
+/* Estilos para dispositivos de tela ainda menores (opcional) */
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 22px;
+  }
 
+  label {
+    font-size: 16px;
+  }
 
-div.resultado {
-  margin-top: 20px;
-  border: 1px ;
-  padding: 25px;
-  font-size: 19px;
-  font-weight: 650px;
-  text-align: left;
-  background-color: none;
-  max-width: 750px;
-}
-div.resultado p {
-  margin: 0; 
-  
-} 
+  input[type="text"] {
+    font-size: 16px;
+  }
 
-#logo{
-  max-width: 120px;
+  button {
+    font-size: 16px;
+  }
+
+  div.resultado {
+    font-size: 14px;
+  }
 }
