@@ -33,6 +33,8 @@ label {
 }
 input[type="text"] {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 13px;
   border-radius: 15px;
   border: none;

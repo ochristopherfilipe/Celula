@@ -20,6 +20,13 @@
 
   input[type="text"] {
     text-align: left;
+    width: 100%;
+    max-width: 100%;
+    padding: 13px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
   }
 
   button {
@@ -46,6 +53,14 @@
 
   input[type="text"] {
     font-size: 16px;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    padding: 13px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
   }
 
   button {
