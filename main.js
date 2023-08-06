@@ -1,3 +1,9 @@
+const btnDesignarTarefas = document.getElementById("btnDesignarTarefas");
+
+    btnDesignarTarefas.addEventListener("click", function() {
+      fazerDesignacoes()
+    })
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -5,26 +11,12 @@ function shuffleArray(array) {
   }
 }
 
-function salvarNomes() {
-  const pessoasInput = document.getElementById("input_pessoas").value.trim();
-  const lideresInput = document.getElementById("input_lideres").value.trim();
-
-  localStorage.setItem("pessoas", pessoasInput);
-  localStorage.setItem("lideres", lideresInput);
-}
-
-function carregarNomes() {
-  const pessoasInput = localStorage.getItem("pessoas") || "";
-  const lideresInput = localStorage.getItem("lideres") || "";
-
-  document.getElementById("input_pessoas").value = pessoasInput;
-  document.getElementById("input_lideres").value = lideresInput;
-}
 
 function fazerDesignacoes() {
   const tarefas = ["Quebra-gelo", "Louvores", "Edificação", "Cadeira da benção", "Compartilhando a Visão"];
-  const pessoasInput = document.getElementById("input_pessoas").value.trim();
   const lideresInput = document.getElementById("input_lideres").value.trim();
+  const pessoasInput = document.getElementById("input_pessoas").value.trim();
+
 
   // Verifica se os campos estão preenchidos
   if (pessoasInput === "" || lideresInput === "") {
@@ -35,23 +27,26 @@ function fazerDesignacoes() {
   const pessoas = pessoasInput.split(/[,\n]| e /).map(p => p.trim());
   const lideresEdificacao = lideresInput.split(/[,\n]| e /).map(l => l.trim());
 
-  const todasAsPessoas = [...pessoas, ...lideresEdificacao];
-  shuffleArray(todasAsPessoas);
+  shuffleArray(pessoas);
+  shuffleArray(lideresEdificacao);
 
   const designacoes = {};
 
   for (const tarefa of tarefas) {
-    if (tarefa === "Edificação") {
-      if (lideresEdificacao.length > 0) {
-        designacoes[tarefa] = lideresEdificacao.pop();
+    if (pessoas.length > 0){
+      if (tarefa === "Edificação") {
+        if (lideresEdificacao.length > 0) {
+          designacoes[tarefa] = lideresEdificacao.pop();
+        } else {
+          designacoes[tarefa] = pessoas.pop();
+        }
       } else {
-        designacoes[tarefa] = todasAsPessoas.pop();
+        designacoes[tarefa] = pessoas.pop();
       }
     } else {
-      designacoes[tarefa] = todasAsPessoas.pop();
+      designacoes[tarefa] = lideresEdificacao.pop();
     }
-  }
-
+}
   const resultadoDiv = document.getElementById("resultado");
   resultadoDiv.innerHTML = "";
 

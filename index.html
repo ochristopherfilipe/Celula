@@ -20,20 +20,17 @@
     <!-- Apontando para o arquivo logo.svg na pasta local -->
     <img src="logo.svg" id="logo">
     <h1>Designação de tarefas</h1>
-    <label for="input_pessoas">Digite os nomes de todos os membros e líderes:</label>
-    <input type="text" placeholder="Ex.: João, Maria, José, Ana " id="input_pessoas">
-    <label for="input_lideres">Digite somente os nomes de quem pode fazer a edificação:</label>
+    <label for="input_lideres">Digite somente o nome do Líder e dos Auxiliares:</label>
     <input type="text" placeholder="Ex.: João, Maria" id="input_lideres">
-    <button onclick="fazerDesignacoes()">Designar tarefas</button> 
+    <label for="input_pessoas">Digite somente o nome dos membros:</label>
+    <input type="text" placeholder="Ex.: João, Maria, José, Ana " id="input_pessoas">
+    <button id="btnDesignarTarefas">Designar tarefas</button> 
     <button onclick="window.print()">Imprimir lista</button>
     <div class="resultado" id="resultado">
       <!-- O resultado será inserido aqui dinamicamente -->
     </div>
-  </div>
+  </div>  
   <script src="main.js"></script>
-  <script>
-    // Carrega os nomes salvos ao abrir a página
-    carregarNomes();
-  </script>  
+
 </body>
 </html>
