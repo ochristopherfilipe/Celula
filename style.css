@@ -64,20 +64,20 @@ button:hover {
   color:var(--clr-light);
 }
 
-
-
 div.resultado {
-  margin-top: 20px;
-  border: 1px ;
+  margin-top: 15px;
+  margin-left: 0px;
+  border: 25px ;
   padding: 25px;
   font-size: 19px;
   font-weight: 650px;
   text-align: left;
-  background-color: none;
-  max-width: 750px;
+ 
+  
 }
 div.resultado p {
   margin: 0; 
+
   
 } 
 

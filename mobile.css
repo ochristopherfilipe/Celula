@@ -1,9 +1,9 @@
 /* Estilos para dispositivos móveis */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   body {
-    background-color: rgba(201, 201, 201, 0.95);
-    background-image: none;
-    padding: 15px;
+    background-color: rgba(11, 145, 207, 0.507);
+    /* background-image: linear-gradient(to left, rgba(11, 145, 207, 0.507), rgba(128, 179, 47, 0.267)); */
+    padding: 45px;
   }
 
   h1 {
@@ -37,7 +37,10 @@
   div.resultado {
     margin-top: 30px;
     padding: 15px;
-    font-size: 16px;
+    font-size: 16px; 
+    background-color: #eee;
+    border: none;
+    border-radius: 12px;
   }
 }
 
